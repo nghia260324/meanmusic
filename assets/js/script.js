@@ -64,26 +64,38 @@ let isPlayRandom = true;
 function nextMusic() {
     musicIndex++; //increment of musicIndex by 1
     //if musicIndex is greater than array length then musicIndex will be 1 so the first music play
-    if (isPlayItem) {
-        musicIndex > allMusic.length ? musicIndex = 1 : musicIndex = musicIndex;
-    } else {
-        musicIndex > mainMusic.length ? musicIndex = 1 : musicIndex = musicIndex;
-    }
+    // musicIndex > allMusic.length ? musicIndex = 1 : musicIndex = musicIndex;
     if (isPlayRandom) {
-        loadMusic(musicIndex);
+        if (isPlayItem) {
+            musicIndex > allMusic.length ? musicIndex = 1 : musicIndex = musicIndex;
+            loadMusic(musicIndex);
+        } else {
+            musicIndex > mainMusic.length ? musicIndex = 1 : musicIndex = musicIndex;
+            loadItemMusic(musicIndex)
+        }
         playMusic();
         playingSong();
     } else {
-        let randIndex = Math.floor((Math.random() * allMusic.length) + 1); //genereting random index/numb with max range of array length
-        do {
-            randIndex = Math.floor((Math.random() * allMusic.length) + 1);
-        } while (musicIndex == randIndex); //this loop run until the next random number won't be the same of current musicIndex
-        musicIndex = randIndex; //passing randomIndex to musicIndex
-        loadMusic(musicIndex);
+        if (isPlayItem) {
+            musicIndex > allMusic.length ? musicIndex = 1 : musicIndex = musicIndex;
+            let randIndex = Math.floor((Math.random() * allMusic.length) + 1); //genereting random index/numb with max range of array length
+            do {
+                randIndex = Math.floor((Math.random() * allMusic.length) + 1);
+            } while (musicIndex == randIndex); //this loop run until the next random number won't be the same of current musicIndex
+            musicIndex = randIndex; //passing randomIndex to musicIndex
+            loadMusic(musicIndex);
+        } else {
+            musicIndex > mainMusic.length ? musicIndex = 1 : musicIndex = musicIndex;
+            let randIndex = Math.floor((Math.random() * mainMusic.length) + 1); //genereting random index/numb with max range of array length
+            do {
+                randIndex = Math.floor((Math.random() * mainMusic.length) + 1);
+            } while (musicIndex == randIndex); //this loop run until the next random number won't be the same of current musicIndex
+            musicIndex = randIndex; //passing randomIndex to musicIndex
+            loadItemMusic(musicIndex);
+        }
         playMusic();
         playingSong();
     }
-    console.log(isPlayRandom)
 
 }
 
@@ -146,17 +158,19 @@ repeatBtn.addEventListener("click", () => {
         case "repeat":
             repeatBtn.innerText = "repeat_one";
             repeatBtn.setAttribute("title", "Song looped");
-            isPlayRandom = true;
+            console.log(isPlayRandom)
+            isPlayRandom = true
             break;
         case "repeat_one":
             repeatBtn.innerText = "shuffle";
             repeatBtn.setAttribute("title", "Playback shuffled");
-            isPlayRandom = false;
+            console.log(isPlayRandom)
+            isPlayRandom = false
             break;
         case "shuffle":
             repeatBtn.innerText = "repeat";
             repeatBtn.setAttribute("title", "Playlist looped");
-            isPlayRandom = true;
+            isPlayRandom = true
             break;
     }
 });
@@ -185,12 +199,13 @@ mainAudio.addEventListener("ended", () => {
         case "shuffle":
             let randIndex = Math.floor((Math.random() * allMusic.length) + 1); //genereting random index/numb with max range of array length
             do {
-                randIndex = Math.floor((Math.random() * allMusic.length) + 1);
+               randIndex = Math.floor((Math.random() * allMusic.length) + 1);
             } while (musicIndex == randIndex); //this loop run until the next random number won't be the same of current musicIndex
             musicIndex = randIndex; //passing randomIndex to musicIndex
             loadMusic(musicIndex);
             playMusic();
             playingSong();
+            isPlayRandom = true;
             break;
     }
 });
@@ -285,11 +300,7 @@ function playingItem() {
 let isPlayItem = true;
 function clickedItem(element) {
     isPlayItem = false;
-    if (isPlayItem) {
-        musicIndex = Math.floor((Math.random() * allMusic.length) + 1);
-    } else {
-        musicIndex = Math.floor((Math.random() * mainMusic.length) + 1);
-    }
+    musicIndex = Math.floor((Math.random() * mainMusic.length) + 1);
     let getItemIndex = element.getAttribute("li-indexs");
     musicIndex = getItemIndex
     loadItemMusic(musicIndex)
