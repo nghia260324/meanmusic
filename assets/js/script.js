@@ -25,11 +25,11 @@ function loadMusic(indexNumb) {
     musicImg.src = `${allMusic[indexNumb - 1].img}`;
     mainAudio.src = `/assets/songs/${allMusic[indexNumb - 1].src}.mp3`;
 }
-function loadItemMuic(indexNumb) {
-    musicName.innerText = allMusic[indexNumb - 1].name;
-    musicArtist.innerText = allMusic[indexNumb - 1].artist;
-    musicImg.src = `${allMusic[indexNumb - 1].img}`;
-    mainAudio.src = `/assets/songs/${allMusic[indexNumb - 1].src}.mp3`;
+function loadItemMusic(indexNumb) {
+    musicName.innerText = mainMusic[indexNumb - 1].name;
+    musicArtist.innerText = mainMusic[indexNumb - 1].artist;
+    musicImg.src = `${mainMusic[indexNumb - 1].img}`;
+    mainAudio.src = `/assets/songs/${mainMusic[indexNumb - 1].src}.mp3`;
 }
 function playMusic() {
     wrapper.classList.add("paused");
@@ -292,6 +292,6 @@ function clickedItem(element) {
     }
     let getItemIndex = element.getAttribute("li-indexs");
     musicIndex = getItemIndex
-    loadMusic(musicIndex)
+    loadItemMusic(musicIndex)
     playMusic()
 }
