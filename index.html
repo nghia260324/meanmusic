@@ -6,8 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mean Music</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="./assets/css/base.css">
     <link rel="stylesheet" href="./assets/css/main.css">
@@ -24,6 +22,99 @@
 </head>
 
 <body>
+    <div class="sidebar">
+        <div class="sidebar__header">
+            <h1><span>〽️</span> MEAN MUSIC</h1>
+            <div class="sidebar__header-icon">
+                <i id="sidebar__chevron" class="fa-solid fa-chevron-left"></i>
+                <i id="sidebar__xmark" class="fa-solid fa-xmark"></i>
+            </div>
+        </div>
+        <div class="sidebar__menu">
+            <div class="sidebar__menu-list">
+                <div class="sidebar__menu-item sidebar__menu-item-search">
+                    <a>
+                        <div class="w__icon">
+                            <i id="close__history" class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                        <input oninput="searchMusic()" class="input__search" type="text" name="" id="" placeholder="Search...">
+                    </a>
+                </div>
+                <div class="sidebar__menu-item">
+                    <a href="#">
+                        <div class="w__icon">
+                            <i class="fa-solid fa-house"></i>
+                        </div>
+                        <h1 class="sidebar__menu-inf">Trang Chủ</h1>
+                    </a>
+                </div>
+                <div class="sidebar__menu-item">
+                    <a class="play__list-music" href="#">
+                        <div class="w__icon">
+                            <i class="fa-solid fa-headphones-simple"></i>
+                        </div>
+                        <h1 class="sidebar__menu-inf">Play List</h1>
+                    </a>
+                </div>
+                <div class="sidebar__menu-item">
+                    <a href="#">
+                        <div class="w__icon">
+                            <i class="fa-solid fa-radio"></i>
+                        </div>
+                        <h1 class="sidebar__menu-inf">Radio</h1>
+                    </a>
+                </div>
+                <div class="sidebar__menu-item">
+                    <a href="#">
+                        <div class="w__icon">
+                            <i class="fa-solid fa-calendar-week"></i>
+                        </div>
+                        <h1 class="sidebar__menu-inf">Thư Viện</h1>
+                    </a>
+                </div>
+                <div class="sidebar__menu-item">
+                    <a href="#">
+                        <div class="w__icon">
+                            <i class="fa-solid fa-bell"></i>
+                        </div>
+                        <h1 class="sidebar__menu-inf">Thông Báo</h1>
+                    </a>
+                </div>
+                <div class="sidebar__menu-item display__on">
+                    <a>
+                        <div class="w__icon">
+                            <i class="fa-solid fa-paintbrush"></i>
+                        </div>
+                        <h1 class="sidebar__menu-inf">Giao diện</h1>
+                    </a>
+                </div>
+                <div id="hs" class="history__search">
+                    <div class="history__search-header">
+                        <h3 class="history__search-title">Lịch sử tìm kiếm của bạn.</h3>
+                        <i id="closeSearch" class="fa-solid fa-xmark"></i>
+                    </div>
+                    <ul class="history__search-list">
+                    </ul>
+                    <h3 class="history__search-title">
+                        Bài hát tìm được.
+                        <span class="arrSearch">(0)</span>
+                    </h3>
+                    <ul class="search__list">
+
+                    </ul>
+                </div>
+            </div>
+            <div class="dark__mode">
+                <div class="w-dark__mode">
+                    <h1>
+                        <i class="fa-solid fa-moon"></i>
+                        Dark Mode
+                    </h1>
+                    <div class="dark__mode-button"></div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="wrapper">
         <div class="header__top">
             <div class="wrap">
@@ -39,12 +130,26 @@
                             <div class="top-bar-item">
                                 <a href="#">TOP MUSIC</a>
                             </div>
-                            <div class="top-bar-item">
-                                <!-- <a href="#">Premium</a> -->
+                            <!-- <div class="top-bar-item">
                                 <i title="Thông Báo" class="fa-solid fa-bell"></i>
                             </div>
                             <div class="top-bar-item icon-youtube">
                                 <a title="Youtube" href="https://www.youtube.com/@SQVNytNru"><i class="fa-brands fa-youtube "></i></a>
+                            </div> -->
+                            <div class="top-bar-item icon-more">
+                                <i title="More" class="fa-solid fa-ellipsis-vertical"></i>
+                                <div class="top-bar-sub-menu">
+                                    <div class="tb-sub-menu-item">
+                                        <i class="fa-solid fa-bell"></i>
+                                        Thông Báo
+                                    </div>
+                                    <div class="tb-sub-menu-item">
+                                        <a title="Youtube" href="https://www.youtube.com/@SQVNytNru">
+                                            <i class="fa-brands fa-youtube "></i>
+                                            Youtube
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -56,65 +161,74 @@
                 </div>
             </div>
         </div>
-        <div class="banner">
-            <!-- <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel"  data-bs-interval="5000">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-                        aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-                        aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                        aria-label="Slide 3"></button>
+
+        <div class="showplaylist">
+            <div class="wrap">
+                <div class="fill_playList">
+                    <a class="playlist__item" href="playList.html">
+                        <img src="https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/d/5/7/6/d5762221d5031c280bd1b127dcd2463d.jpg" alt="">
+                        <p>Top Hits Remix</p>
+                    </a>
+                    <a class="playlist__item" href="playList.html">
+                        <img src="./assets/img/site.png" alt="">
+                        <p>PlayList</p>
+                    </a>
+                    <a class="playlist__item" href="playList.html">
+                        <img src="./assets/img/site.png" alt="">
+                        <p>PlayList</p>
+                    </a>
                 </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="./assets/img/bgr__music-1.jpg" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>First slide label</h5>
-                            <p>Some representative placeholder content for the first slide.</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="./assets/img/bgr__music-2.jpg" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Second slide label</h5>
-                            <p>Some representative placeholder content for the second slide.</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="./assets/img/bgr__music-3.jpg" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Third slide label</h5>
-                            <p>Some representative placeholder content for the third slide.</p>
-                        </div>
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div> -->
+            </div>
         </div>
+
         <div class="wrap">
+            <div class="main__music-title"><h1>CHILL MUSIC</h1></div>
             <div class="main__music">
                 <ul class="main__music-list">
                 </ul>
             </div>
+            <marquee class="gallery__container" behavior="" direction="left">
+                <div class="gallery__container-list">
+                    <div class="gallery__container-item">
+                        <a href="#"><img src="./assets/img/Gallery/gallery1.jpg" alt=""></a>
+                    </div>
+                    <div class="gallery__container-item">
+                        <a href="#"><img src="./assets/img/Gallery/gallery2.jpg" alt=""></a>
+                    </div>
+                    <div class="gallery__container-item">
+                        <a href="#"><img src="./assets/img/Gallery/gallery3.jpg" alt=""></a>
+                    </div>
+                </div>
+            </marquee>
         </div>
-
+        <div class="wrap">
+            <div class="main__music-title"><h1>ONE HOUR MUSIC</h1></div>
+            <div class="onehours__music">
+                <ul class="main__music-list onehours__music-list">
+                </ul>
+            </div>
+        </div>
+        <div class="wrap">
+            <div class="main__music-title"><h1>Motivation Songs</h1></div>
+            <div class="motivation__songs">
+                <ul class="main__music-list motivation__songs-list">
+                </ul>
+            </div>
+            <!-- <p><input type="file" id="input-file" accept="audio/*" /></p>
+            <canvas id="canvas__visualizations" style="width: 100%;height: 200px;"></canvas> -->
+            <!-- <audio controls id="canvas__audio" src=""></audio> -->
+            <!-- <p><input type="file" id="input-file" accept="audio/*" /></p> -->
+        </div>
+        <div class="mgl"></div>
         <div class="w-controls">
             <div class="wrap">
                 <div class="w-control-main">
+                    <div class="set__status"><i id="set__status-icon" class="fa-solid fa-chevron-down"></i></div>
                     <div class="img-area">
                         <img src="" alt="">
                         <div class="song-details">
-                            <p class="name"></p>
+                            <!-- <p class="name"></p> -->
+                            <marquee class="name" behavior="" direction="left"></marquee>
                             <p class="artist"></p>
                         </div>
                     </div>
@@ -143,29 +257,65 @@
             <div class="header">
                 <div class="header__row">
                     <i class="list material-icons">queue_music</i>
-                    <span>Music list</span>
+                    <span class="select__playlist">Music list
+                        <i class="fa-solid fa-angle-down"></i>
+                    </span>
+                    <div class="select__playlist-list">
+                        <div class="select__playlist-item playing" li-index="1" onclick="musiclist(this)">
+                            <p>Music List</p>
+                        </div>
+                        <div class="select__playlist-item" li-index="2" onclick="usukmusic(this)">
+                            <p>Nhạc US-UK</p>
+                        </div>
+                        <div class="select__playlist-item" li-index="3" onclick="edm(this)">
+                            <p>EDM</p>
+                        </div>
+                        <div class="select__playlist-item" li-index="4" onclick="hot(this)">
+                            <p>HOT</p>
+                        </div>
+                    </div>
                 </div>
                 <i id="close" class="material-icons">close</i>
             </div>
-            <ul class="play__list">
-                <!-- here li list are coming from js -->
+            <ul class="play__list allMusic">
+            </ul>
+            <ul class="play__list usukMusic">
+            </ul>
+            <ul class="play__list edmMusic">
+            </ul>
+            <ul class="play__list hotMusic">
+
             </ul>
         </div>
     </div>
-
-
+    <div class="display">
+        <div class="display__list">
+            <span><i id="close__display" class="fa-solid fa-xmark"></i></span>
+            <div class="display__item display_1">
+                <img class="display_purple" src="" alt="">
+            </div>
+        </div>
+    </div>
+    <script src="./assets/js/api.js"></script>
     <script src="./assets/js/music-list.js"></script>
     <script src="./assets/js/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-        crossorigin="anonymous"></script>
     <script>
-        var ckIcon = document.querySelector(".top-bar-icon");
-        ckIcon.onclick = function() {
-            var menu = document.querySelector(".top-bar-menu");
-            menu.classList.toggle("active");
-        }
+        // var ckItemSearch = document.querySelector(".sidebar__menu-item-search");
+        // ckItemSearch.onclick = function() {
+        //     var historySearch = document.querySelector("#hs");
+        //     historySearch.classList.toggle("active");
+        // }
+        // function removeHistory() {
+        //     var historySearch = document.querySelector("#hs");
+        //     historySearch.classList.remove("active")
+        // }
     </script>
 </body>
-
 </html>
+<!-- <li class="search__item">
+    <img src="./assets/img/img home music/bonghoadepnhat.jpg" alt="">
+    <div class="search__item-inf">
+        <h3>Tên Bài Hát</h3>
+        <p>Tên Tác Giả</p>
+    </div>
+</li> -->
