@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mean Music</title>
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/base.css">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
+    <link rel="shortcut icon" type="image/png" href="./assets/img/site.png">
+    <link rel="stylesheet" href="./assets/icon/fontawesome-free-6.2.1-web/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,500;0,700;0,900;1,100;1,200;1,300;1,500;1,700;1,900&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="sidebar__header">
+            <h1><span>〽️</span> MEAN MUSIC</h1>
+            <div class="sidebar__header-icon">
+                <i id="sidebar__chevron" class="fa-solid fa-chevron-left"></i>
+                <i id="sidebar__xmark" class="fa-solid fa-xmark"></i>
+            </div>
+        </div>
+        <div class="sidebar__menu">
+            <div class="sidebar__menu-list">
+                <div class="sidebar__menu-item sidebar__menu-item-search">
+                    <a>
+                        <div class="w__icon">
+                            <i id="close__history" class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                        <input oninput="searchMusic()" class="input__search" type="text" name="" id="" placeholder="Search...">
+                    </a>
+                </div>
+                <div class="sidebar__menu-item">
+                    <a href="#">
+                        <div class="w__icon">
+                            <i class="fa-solid fa-house"></i>
+                        </div>
+                        <h1 class="sidebar__menu-inf">Trang Chủ</h1>
+                    </a>
+                </div>
+                <div class="sidebar__menu-item">
+                    <a class="play__list-music" href="#">
+                        <div class="w__icon">
+                            <i class="fa-solid fa-headphones-simple"></i>
+                        </div>
+                        <h1 class="sidebar__menu-inf">Play List</h1>
+                    </a>
+                </div>
+                <div class="sidebar__menu-item">
+                    <a href="#">
+                        <div class="w__icon">
+                            <i class="fa-solid fa-radio"></i>
+                        </div>
+                        <h1 class="sidebar__menu-inf">Radio</h1>
+                    </a>
+                </div>
+                <div class="sidebar__menu-item">
+                    <a href="#">
+                        <div class="w__icon">
+                            <i class="fa-solid fa-calendar-week"></i>
+                        </div>
+                        <h1 class="sidebar__menu-inf">Thư Viện</h1>
+                    </a>
+                </div>
+                <div class="sidebar__menu-item">
+                    <a href="#">
+                        <div class="w__icon">
+                            <i class="fa-solid fa-bell"></i>
+                        </div>
+                        <h1 class="sidebar__menu-inf">Thông Báo</h1>
+                    </a>
+                </div>
+                <div class="sidebar__menu-item display__on">
+                    <a>
+                        <div class="w__icon">
+                            <i class="fa-solid fa-paintbrush"></i>
+                        </div>
+                        <h1 class="sidebar__menu-inf">Giao diện</h1>
+                    </a>
+                </div>
+                <div id="hs" class="history__search">
+                    <div class="history__search-header">
+                        <h3 class="history__search-title">Lịch sử tìm kiếm của bạn.</h3>
+                        <i id="closeSearch" class="fa-solid fa-xmark"></i>
+                    </div>
+                    <ul class="history__search-list">
+                    </ul>
+                    <h3 class="history__search-title">
+                        Bài hát tìm được.
+                        <span class="arrSearch">(0)</span>
+                    </h3>
+                    <ul class="search__list">
+
+                    </ul>
+                </div>
+            </div>
+            <div class="dark__mode">
+                <div class="w-dark__mode">
+                    <h1>
+                        <i class="fa-solid fa-moon"></i>
+                        Dark Mode
+                    </h1>
+                    <div class="dark__mode-button"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="header__top">
+            <div class="wrap">
+                <div class="top-bar">
+                    <!-- <i class="material-icons">expand_more</i> -->
+                    <span>Mean Music</span>
+                    <!-- <i class="material-icons">more_horiz</i> -->
+                    <div class="top-bar-menu">
+                        <div class="top-bar-list">
+                            <div class="top-bar-item">
+                                <a href="./index.html">Trang Chủ</a>
+                            </div>
+                            <div class="top-bar-item">
+                                <a href="#">TOP MUSIC</a>
+                            </div>
+                            <!-- <div class="top-bar-item">
+                                <i title="Thông Báo" class="fa-solid fa-bell"></i>
+                            </div>
+                            <div class="top-bar-item icon-youtube">
+                                <a title="Youtube" href="https://www.youtube.com/@SQVNytNru"><i class="fa-brands fa-youtube "></i></a>
+                            </div> -->
+                            <div class="top-bar-item icon-more">
+                                <i title="More" class="fa-solid fa-ellipsis-vertical"></i>
+                                <div class="top-bar-sub-menu">
+                                    <div class="tb-sub-menu-item">
+                                        <i class="fa-solid fa-bell"></i>
+                                        Thông Báo
+                                    </div>
+                                    <div class="tb-sub-menu-item">
+                                        <a title="Youtube" href="https://www.youtube.com/@SQVNytNru">
+                                            <i class="fa-brands fa-youtube "></i>
+                                            Youtube
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="top-bar-icon">
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="showplaylist">
+            <div class="wrap">
+                <div class="fill__pl">
+                    <img src="https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/d/5/7/6/d5762221d5031c280bd1b127dcd2463d.jpg" alt="">
+                    <p>Top Hits Remix</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="mgl"></div>
+        <div class="w-controls">
+            <div class="wrap">
+                <div class="w-control-main">
+                    <div class="set__status"><i id="set__status-icon" class="fa-solid fa-chevron-down"></i></div>
+                    <div class="img-area">
+                        <img src="" alt="">
+                        <div class="song-details">
+                            <!-- <p class="name"></p> -->
+                            <marquee class="name" behavior="" direction="left"></marquee>
+                            <p class="artist"></p>
+                        </div>
+                    </div>
+                    <div class="controls">
+                        <i id="repeat-plist" class="material-icons" title="Playlist looped">repeat</i>
+                        <i id="prev" class="material-icons">skip_previous</i>
+                        <div class="play-pause">
+                            <i class="material-icons play">play_arrow</i>
+                        </div>
+                        <i id="next" class="material-icons">skip_next</i>
+                        <i id="more-music" class="material-icons">queue_music</i>
+                    </div>
+                    <div class="progress-area">
+                        <div class="progress-bar">
+                            <audio id="main-audio" src=""></audio>
+                        </div>
+                        <div class="song-timer">
+                            <span class="current-time">0:00</span>
+                            <span class="max-duration">0:00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="music-list">
+            <div class="header">
+                <div class="header__row">
+                    <i class="list material-icons">queue_music</i>
+                    <span class="select__playlist">Music list
+                        <i class="fa-solid fa-angle-down"></i>
+                    </span>
+                    <div class="select__playlist-list">
+                        <div class="select__playlist-item playing" li-index="1" onclick="musiclist(this)">
+                            <p>Music List</p>
+                        </div>
+                        <div class="select__playlist-item" li-index="2" onclick="usukmusic(this)">
+                            <p>Nhạc US-UK</p>
+                        </div>
+                        <div class="select__playlist-item" li-index="3" onclick="edm(this)">
+                            <p>EDM</p>
+                        </div>
+                        <div class="select__playlist-item" li-index="4" onclick="hot(this)">
+                            <p>HOT</p>
+                        </div>
+                    </div>
+                </div>
+                <i id="close" class="material-icons">close</i>
+
+            </div>
+            <ul class="play__list allMusic">
+            </ul>
+            <ul class="play__list usukMusic">
+            </ul>
+            <ul class="play__list edmMusic">
+            </ul>
+            <ul class="play__list hotMusic">
+
+            </ul>
+        </div>
+    </div>
+    <div class="display">
+        <div class="display__list">
+            <span><i id="close__display" class="fa-solid fa-xmark"></i></span>
+            <div class="display__item display_1">
+                <img class="display_purple" src="" alt="">
+            </div>
+        </div>
+    </div>
+    <script src="./assets/js/api.js"></script>
+    <script src="./assets/js/music-list.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <script>
+    </script>
+</body>
+
+</html>
