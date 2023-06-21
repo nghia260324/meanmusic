@@ -1,0 +1,165 @@
+@media screen and (max-width:1200px) {
+    .top-bar,
+    .w-control-main,
+    .main__music-list{padding: 0 12px;}
+}
+@media screen and (max-width:1024px) {
+    .main__music-item {
+        width: 48%;
+    }
+    .img-area.hident {
+        width: 0px;
+        overflow: hidden;
+        flex: unset;
+    }
+}
+@media screen and (max-width:992px) {
+    .top-bar-icon{display: block;}
+    .top-bar span{font-size: 20px;}
+    /* .main__music {
+        max-height: calc(100vh - 550px - 80px);
+        overflow: auto;
+    } */
+
+    /* head */
+    .top-bar-menu {
+        position: absolute;
+        height: 0;
+        top: calc(var(--height-header) + 1px);
+        left: 0;
+        right: 0;
+        background-color: var(--while-color);
+        z-index: 11;
+        overflow: hidden;
+        transition: all linear .2s;
+    }
+    .top-bar-menu.active {height: 92px;}
+    .top-bar-menu.active .top-bar-item>a {opacity: 1;}
+    .top-bar-list {flex-direction: column;}
+    .top-bar-item{
+        width: 100%;
+        padding: 0 7px;
+    }
+    .top-bar-item>a {
+        opacity: 0;
+        text-align: center;
+        border-bottom: 1px solid var(--x-color3);
+        transition: all linear .1s;
+    }
+    .top-bar-item:nth-child(3),
+    .top-bar-item:nth-child(4) {display: none;}
+
+
+    .sidebar {
+        position: fixed;
+        bottom: 0;
+        top: 0;
+        left: -260px;
+    }
+    .sidebar.active {left: 0;}
+    .sidebar__header-icon>i:first-child {display: none;}
+    .sidebar__header-icon>i:last-child {display: block;}
+    .header__top {display: block;}
+    .w-controls {margin: 0;}
+}
+@media screen and (max-width:768px) {
+    
+}
+@media screen and (max-width:640px) {
+    .set__status{
+        display: block;
+        position: absolute;
+        width: fit-content;
+        top: 12px;
+        right: 24px;
+        text-align: right;
+    }
+    #set__status-icon{
+        font-size: 20px;
+        background: -webkit-linear-gradient(45deg,var(--blue-color2)0%, var(--blue-color3)100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        transition: var(--tran-2);
+    }
+    #set__status-icon.active {
+        transform: rotate(180deg);
+    }
+
+    .main__music-list,
+    .w-control-main,
+    .img-area{
+        flex-direction: column;
+        transition: var(--tran-3);
+        opacity: 1;
+    }
+    .img-area.active{
+        width: 0;
+        /* display: none; */
+        /* overflow: hidden; */
+        overflow: hidden;
+        opacity: 0;
+    }
+    .w-control-main {
+        height: calc(100vh - var(--height-header) - 144px);
+        padding: 24px 12px 0;
+        justify-content: unset;
+        transition: var(--tran-3);
+    }
+
+    .img-area>img {
+        width: 200px;
+        height: 200px;
+        /* width: 80%;
+        height: 80%; */
+        max-width: 200px;
+    }
+    .main__music-item {width: 90%;}
+    .controls, .img-area {
+        position: absolute;
+        width: 100%;
+    }
+    .song-details {padding-top: 50px;}
+    .song-details>p,
+    .song-details>marquee {text-align: center;}
+    .img-area {
+        order: 1;
+        bottom: 120px;
+    }
+    .progress-area {position: absolute;order: 2;width: 80%;bottom: 90px;}
+    .controls {order: 3;bottom: 0;left: 0;right: 0;padding: 12px;justify-content: space-evenly;}
+    .music-list {
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 15px;
+        top: unset;
+        left: unset;
+        right: unset;
+        z-index: 12;
+        bottom: -50%;
+        /* bottom: 200px; */
+        /* height: 0; */
+        width: 100%!important;
+        height: 70vh;
+        transition: all linear .2s;
+    }
+    .music-list.show {bottom: 0;}
+    .music-list ul {
+        margin: 10px 0 0;
+        max-height: calc(100% - 78px - 5px);
+    }
+    .mgl{
+        width: 100%;
+        height: calc(470px - 372px);
+    }
+}
+/* @media screen and (max-width:420px) {
+    .img-area>img {
+        width: 65%;
+        height: 65%;
+    }
+}
+@media screen and (max-width:380px) {
+    .img-area>img {
+        width: 70%;
+        height: 70%;
+    }
+} */
