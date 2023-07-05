@@ -141,6 +141,12 @@ let chillMusic = [
 ];
 let oneHours = [
   {
+    name: "XOMU LANTERNS REMIX",
+    singer: "Mean Music",
+    thumbnail: "https://i.ytimg.com/vi/m3Fzi3QADvk/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLDsMJFcpRtJIOl7E_MTgPPx5Vf_-g",
+    path: "https://seaf20.iiiijjjjij.com/files/2022/12/6/nonstop_vinahouse_2023_sieu_pham_xomu_lanterns_remix_cuc_pham_nhac_tam_da_2023_-1713021876940843782.mp3"
+  },
+  {
     name: "LIGHT IT UP x RISE (THEREON REMIX)",
     singer: "Mean Music",
     thumbnail: "https://i1.sndcdn.com/artworks-000387484215-dhnm65-t500x500.jpg",
